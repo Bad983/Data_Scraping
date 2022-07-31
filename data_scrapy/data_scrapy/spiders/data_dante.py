@@ -24,17 +24,23 @@ class DanteSpider(scrapy.Spider):
             'TAG': 'td.tprosa',
             'PATH': '../../Opere/Dante/Traduzione/'
         }
+        self.ORIG_CACCIA_DIANA = {
+            'URL': 'http://boccaccio.letteraturaoperaomnia.org/boccaccio_caccia_di_diana.html',
+            'NAME': 'ORIG_CACCIA_DIANA',
+            'TAG': 'blockquote',
+            'PATH': '../../Opere/Dante/Originale/'
+        }
 
-
-        self.TRAD_1_CONVIVIO = 'https://www.danteonline.it/opere/index.php?opera=The%20Banquet%20-%20tr.%20Ryan'
-        self.TRAD_2_CONVIVIO = 'https://www.danteonline.it/opere/index.php?opera=Dante%27s%20%22Il%20Convivio%22%20-%20tr.%20Lansing'
-        self.path = "/Traduzioni/"
+        # self.TRAD_1_CONVIVIO = 'https://www.danteonline.it/opere/index.php?opera=The%20Banquet%20-%20tr.%20Ryan'
+        # self.TRAD_2_CONVIVIO = 'https://www.danteonline.it/opere/index.php?opera=Dante%27s%20%22Il%20Convivio%22%20-%20tr.%20Lansing'
+        # self.path = "/Traduzioni/"
 
     def start_requests(self):
         opere = [
             self.TRAD_1_FIORE,
             self.TRAD_1_DETTO_AMORE,
             self.TRAD_1_RIME,
+            self.ORIG_CACCIA_DIANA
             # self.TRAD_1_CONVIVIO,
             # self.TRAD_2_CONVIVIO
         ]
@@ -50,6 +56,6 @@ class DanteSpider(scrapy.Spider):
 
         with open(filename, 'w') as f:
             for resp in response.css(tag + "::text").getall():
-                f.write(resp)
+                f.write(resp.strip())
 
         self.log(f'Saved file {filename}')
