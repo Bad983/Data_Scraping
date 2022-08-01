@@ -30,6 +30,12 @@ class DanteSpider(scrapy.Spider):
             'TAG': 'blockquote',
             'PATH': '../../Opere/Dante/Originale/'
         }
+        self.ORIG_DIVINA_COMMEDIA = {
+            'URL': 'https://divinacommedia.weebly.com/inferno-canto-i.html',
+            'NAME': 'ORIG_DIVINA_COMMEDIA',
+            'TAG': 'td.wsite-multicol-col',
+            'PATH': '../../Opere/Dante/Originale/'
+        }
 
         # self.TRAD_1_CONVIVIO = 'https://www.danteonline.it/opere/index.php?opera=The%20Banquet%20-%20tr.%20Ryan'
         # self.TRAD_2_CONVIVIO = 'https://www.danteonline.it/opere/index.php?opera=Dante%27s%20%22Il%20Convivio%22%20-%20tr.%20Lansing'
@@ -37,10 +43,11 @@ class DanteSpider(scrapy.Spider):
 
     def start_requests(self):
         opere = [
-            self.TRAD_1_FIORE,
-            self.TRAD_1_DETTO_AMORE,
-            self.TRAD_1_RIME,
-            self.ORIG_CACCIA_DIANA
+            # self.TRAD_1_FIORE,
+            # self.TRAD_1_DETTO_AMORE,
+            # self.TRAD_1_RIME,
+            # self.ORIG_CACCIA_DIANA,
+            self.ORIG_DIVINA_COMMEDIA
             # self.TRAD_1_CONVIVIO,
             # self.TRAD_2_CONVIVIO
         ]
@@ -54,8 +61,14 @@ class DanteSpider(scrapy.Spider):
         tag = opera['TAG']
         filename = path + f'{page}.txt'
 
+        print(response.css(tag + "::text").getall())
         with open(filename, 'w') as f:
+
             for resp in response.css(tag + "::text").getall():
+                print("_____________________________")
+                print(resp)
+                print("_____________________________")
+
                 f.write(resp.strip())
 
         self.log(f'Saved file {filename}')
