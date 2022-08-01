@@ -1,4 +1,5 @@
 import scrapy
+import re
 
 class DanteSpider(scrapy.Spider):
     name = "dante"
@@ -33,8 +34,9 @@ class DanteSpider(scrapy.Spider):
         self.ORIG_DIVINA_COMMEDIA = {
             'URL': 'https://divinacommedia.weebly.com/inferno-canto-i.html',
             'NAME': 'ORIG_DIVINA_COMMEDIA',
-            'TAG': 'td.wsite-multicol-col',
-            'PATH': '../../Opere/Dante/Originale/'
+            'TAG': 'td.wsite-multicol-col div.paragraph',
+            'PATH': '../../Opere/Dante/Originale/',
+            'RE-PATTERN': r'[0-9]'
         }
 
         # self.TRAD_1_CONVIVIO = 'https://www.danteonline.it/opere/index.php?opera=The%20Banquet%20-%20tr.%20Ryan'
@@ -59,15 +61,15 @@ class DanteSpider(scrapy.Spider):
         page = opera['NAME']
         path = opera['PATH']
         tag = opera['TAG']
+        pattern = opera['RE-PATTERN']
         filename = path + f'{page}.txt'
 
         print(response.css(tag + "::text").getall())
         with open(filename, 'w') as f:
 
             for resp in response.css(tag + "::text").getall():
-                print("_____________________________")
-                print(resp)
-                print("_____________________________")
+                if pattern != "":
+                    resp = re.sub(pattern, '', resp)
 
                 f.write(resp.strip())
 
