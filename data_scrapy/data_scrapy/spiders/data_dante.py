@@ -1,6 +1,7 @@
 import scrapy
 import re
 
+
 class DanteSpider(scrapy.Spider):
     name = "dante"
 
@@ -32,8 +33,11 @@ class DanteSpider(scrapy.Spider):
             'PATH': '../../Opere/Dante/Originale/'
         }
         self.ORIG_DIVINA_COMMEDIA = {
-            'URL': 'https://divinacommedia.weebly.com/inferno-canto-i.html',
+            'URL': 'https://divinacommedia.weebly.com/inferno-canto-numpages.html',
             'NAME': 'ORIG_DIVINA_COMMEDIA',
+            'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
+                               'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
+                               'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII', 'XXXIV'],
             'TAG': 'td.wsite-multicol-col div.paragraph',
             'PATH': '../../Opere/Dante/Originale/',
             'RE-PATTERN': r'[0-9]'
@@ -55,7 +59,13 @@ class DanteSpider(scrapy.Spider):
         ]
         for opera in opere:
             print(opera['URL'])
-            yield scrapy.Request(url=opera['URL'], callback=self.parse, cb_kwargs=dict(opera=opera))
+            multiple_pages = opera['MULTIPLE_PAGES']
+            if multiple_pages is not None:
+                for pages in multiple_pages:
+                    url = opera['URL'].replace('numpages', pages)
+                    yield scrapy.Request(url=url, callback=self.parse, cb_kwargs=dict(opera=opera))
+            else:
+                yield scrapy.Request(url=opera['URL'], callback=self.parse, cb_kwargs=dict(opera=opera))
 
     def parse(self, response, opera, **kwargs):
         page = opera['NAME']
@@ -65,7 +75,7 @@ class DanteSpider(scrapy.Spider):
         filename = path + f'{page}.txt'
 
         print(response.css(tag + "::text").getall())
-        with open(filename, 'w') as f:
+        with open(filename, 'a') as f:
 
             for resp in response.css(tag + "::text").getall():
                 if pattern != "":
