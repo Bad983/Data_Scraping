@@ -123,9 +123,9 @@ class DanteSpider(scrapy.Spider):
             # self.TRAD_1_RIME,
             # self.ORIG_CACCIA_DIANA,
             self.ORIG_DIVINA_COMMEDIA_INFERNO,
-            self.TRAD_2_DIVINA_COMMEDIA_INFERNO
+            self.TRAD_2_DIVINA_COMMEDIA_INFERNO,
             self.ORIG_DIVINA_COMMEDIA_PURGATORIO,
-            self.TRAD_2_DIVINA_COMMEDIA_PURGATORIO
+            self.TRAD_2_DIVINA_COMMEDIA_PURGATORIO,
             self.ORIG_DIVINA_COMMEDIA_PARADISO,
             self.TRAD_2_DIVINA_COMMEDIA_PARADISO
             # self.TRAD_1_CONVIVIO,
