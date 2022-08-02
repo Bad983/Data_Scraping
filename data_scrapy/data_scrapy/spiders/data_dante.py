@@ -64,6 +64,8 @@ class DanteSpider(scrapy.Spider):
                 for pages in multiple_pages:
                     url = opera['URL'].replace('numpages', pages)
                     yield scrapy.Request(url=url, callback=self.parse, cb_kwargs=dict(opera=opera))
+                    if pages == "II":
+                        break
             else:
                 yield scrapy.Request(url=opera['URL'], callback=self.parse, cb_kwargs=dict(opera=opera))
 
@@ -75,12 +77,12 @@ class DanteSpider(scrapy.Spider):
         filename = path + f'{page}.txt'
 
         print(response.css(tag + "::text").getall())
-        with open(filename, 'a') as f:
+        with open(filename, 'w') as f:
 
             for resp in response.css(tag + "::text").getall():
                 if pattern != "":
                     resp = re.sub(pattern, '', resp)
 
-                f.write(resp.strip())
+                f.write(resp)
 
         self.log(f'Saved file {filename}')
