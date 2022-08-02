@@ -12,25 +12,30 @@ class DanteSpider(scrapy.Spider):
             'URL': 'https://www.danteonline.it/opere/index.php?opera=Fiore%20-%20tr.%20Casciani-Kleinhenz',
             'NAME': 'TRAD_1_FIORE',
             'TAG': 'td.t11.indenta',
-            'PATH': '../../Opere/Dante/Traduzione/'
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'OPEN_FILE_MODE': 'w'
+
         }
         self.TRAD_1_DETTO_AMORE = {
             'URL': 'https://www.danteonline.it/opere/index.php?opera=Detto%20d%27Amore%20-%20tr.%20Casciani-Kleinhenz',
             'NAME': 'TRAD_1_DETTO_AMORE',
             'TAG': 'td.t10.nonindentare',
-            'PATH': '../../Opere/Dante/Traduzione/'
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'OPEN_FILE_MODE': 'w'
         }
         self.TRAD_1_RIME = {
             'URL': 'https://www.danteonline.it/opere/index.php?opera=Dante%27s%20Lyric%20Poetry%20-%20tr.%20Foster-Boyde',
             'NAME': 'TRAD_1_RIME',
             'TAG': 'td.tprosa',
-            'PATH': '../../Opere/Dante/Traduzione/'
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'OPEN_FILE_MODE': 'w'
         }
         self.ORIG_CACCIA_DIANA = {
             'URL': 'http://boccaccio.letteraturaoperaomnia.org/boccaccio_caccia_di_diana.html',
             'NAME': 'ORIG_CACCIA_DIANA',
             'TAG': 'blockquote',
-            'PATH': '../../Opere/Dante/Originale/'
+            'PATH': '../../Opere/Dante/Originale/',
+            'OPEN_FILE_MODE': 'w'
         }
         self.ORIG_DIVINA_COMMEDIA = {
             'URL': 'https://divinacommedia.weebly.com/inferno-canto-numpages.html',
@@ -40,7 +45,8 @@ class DanteSpider(scrapy.Spider):
                                'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII', 'XXXIV'],
             'TAG': 'td.wsite-multicol-col div.paragraph',
             'PATH': '../../Opere/Dante/Originale/',
-            'RE-PATTERN': r'[0-9]'
+            'RE-PATTERN': r'[0-9]',
+            'OPEN_FILE_MODE': 'a'
         }
 
         # self.TRAD_1_CONVIVIO = 'https://www.danteonline.it/opere/index.php?opera=The%20Banquet%20-%20tr.%20Ryan'
@@ -74,10 +80,11 @@ class DanteSpider(scrapy.Spider):
         path = opera['PATH']
         tag = opera['TAG']
         pattern = opera['RE-PATTERN']
+        open_file_mode = opera['OPEM_FILE_MODE']
         filename = path + f'{page}.txt'
 
         print(response.css(tag + "::text").getall())
-        with open(filename, 'w') as f:
+        with open(filename, open_file_mode) as f:
 
             for resp in response.css(tag + "::text").getall():
                 if pattern != "":
