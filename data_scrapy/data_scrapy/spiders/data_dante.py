@@ -86,13 +86,39 @@ class DanteSpider(scrapy.Spider):
             'RE-PATTERN': None
         }
 
+        self.ORIG_RIME = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Rime%20-%20ed.%20Barbi&livello1=numpages',
+            'NAME': 'ORIG_RIME',
+            'TAG': 'td.t01.indenta',
+            'PATH': '../../Opere/Dante/Originale/',
+            'OPEN_FILE_MODE': 'a',
+            'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
+                               'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
+                               'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII', 'XXXIV', 'XXXV', 'XXXVI',
+                               'XXXVII', 'XXXVIII', 'XXXIX', 'XL', 'XLI', 'XLII', 'XLIII', 'XLIV', 'XLV', 'XLVI',
+                               'XLVII', 'XLVIII', 'XLIX', 'L', 'LI', 'LII', 'LIII', 'LIV', 'LV', 'LVI',  'LVII',
+                               'LVIII', 'LIX', 'LX', 'LXI', 'LXII', 'LXIII', 'LXIV', 'LXV', 'LXVI', 'LXVII',
+                               'LXVIII', 'LXIX', 'LXX', 'LXXI', 'LXXII', 'LXXIII', 'LXXIV', 'LXXV', 'LXXVI', 'LXXVII',
+                               'LXXVIII', 'LXXIX', 'LXXX', 'LXXXI', 'LXXXII', 'LXXXIII', 'LXXXIV', 'LXXXV', 'LXXXVI',
+                               'LXXXVII', 'LXXXVIII', 'LXXXIX'],
+            'RE-PATTERN': None
+        }
+
         self.TRAD_1_RIME = {
-            'URL': 'https://www.danteonline.it/opere/index.php?opera=Dante%27s%20Lyric%20Poetry%20-%20tr.%20Foster-Boyde',
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Dante%27s%20Lyric%20Poetry%20-%20tr.%20Foster-Boyde&livello1=numpages',
             'NAME': 'TRAD_1_RIME',
             'TAG': 'td.tprosa',
             'PATH': '../../Opere/Dante/Traduzione/',
-            'OPEN_FILE_MODE': 'w',
-            'MULTIPLE_PAGES': None,
+            'OPEN_FILE_MODE': 'a',
+            'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
+                               'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
+                               'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII', 'XXXIV', 'XXXV', 'XXXVI',
+                               'XXXVII', 'XXXVIII', 'XXXIX', 'XL', 'XLI', 'XLII', 'XLIII', 'XLIV', 'XLV', 'XLVI',
+                               'XLVII', 'XLVIII', 'XLIX', 'L', 'LI', 'LII', 'LIII', 'LIV', 'LV', 'LVI',  'LVII',
+                               'LVIII', 'LIX', 'LX', 'LXI', 'LXII', 'LXIII', 'LXIV', 'LXV', 'LXVI', 'LXVII',
+                               'LXVIII', 'LXIX', 'LXX', 'LXXI', 'LXXII', 'LXXIII', 'LXXIV', 'LXXV', 'LXXVI', 'LXXVII',
+                               'LXXVIII', 'LXXIX', 'LXXX', 'LXXXI', 'LXXXII', 'LXXXIII', 'LXXXIV', 'LXXXV', 'LXXXVI',
+                               'LXXXVII', 'LXXXVIII', 'LXXXIX'],
             'RE-PATTERN': None
         }
 
@@ -183,7 +209,8 @@ class DanteSpider(scrapy.Spider):
             # self.ORIG_FIORE
             # self.TRAD_1_FIORE,
             # self.TRAD_1_DETTO_AMORE,
-            self.ORIG_DETTO_AMORE
+            # self.ORIG_DETTO_AMORE,
+            self.ORIG_RIME
             # self.TRAD_1_RIME,
             # self.ORIG_CACCIA_DIANA,
             # self.ORIG_DIVINA_COMMEDIA_INFERNO,
