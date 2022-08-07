@@ -76,6 +76,16 @@ class DanteSpider(scrapy.Spider):
             'RE-PATTERN': None
         }
 
+        self.ORIG_DETTO_AMORE = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Detto%20d%27Amore%20-%20ed.%20Allegretti',
+            'NAME': 'ORIG_DETTO_AMORE',
+            'TAG': 'td.t08.nonindentare',
+            'PATH': '../../Opere/Dante/Originale/',
+            'OPEN_FILE_MODE': 'w',
+            'MULTIPLE_PAGES': None,
+            'RE-PATTERN': None
+        }
+
         self.TRAD_1_RIME = {
             'URL': 'https://www.danteonline.it/opere/index.php?opera=Dante%27s%20Lyric%20Poetry%20-%20tr.%20Foster-Boyde',
             'NAME': 'TRAD_1_RIME',
@@ -170,9 +180,10 @@ class DanteSpider(scrapy.Spider):
 
     def start_requests(self):
         opere = [
-            self.ORIG_FIORE
+            # self.ORIG_FIORE
             # self.TRAD_1_FIORE,
             # self.TRAD_1_DETTO_AMORE,
+            self.ORIG_DETTO_AMORE
             # self.TRAD_1_RIME,
             # self.ORIG_CACCIA_DIANA,
             # self.ORIG_DIVINA_COMMEDIA_INFERNO,
