@@ -13,7 +13,7 @@ class DanteSpider(scrapy.Spider):
             'NAME': 'ORIG_FIORE',
             'TAG': 'td.t01.indenta',
             'PATH': '../../Opere/Dante/Originale/',
-            'OPEN_FILE_MODE': 'a',
+            'OPEN_FILE_MODE': 'w',
             'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
                                'XV', 'XVI', 'XVII',
                                'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI', 'XXVII', 'XXVIII',
@@ -61,7 +61,7 @@ class DanteSpider(scrapy.Spider):
             'NAME': 'TRAD_1_FIORE',
             'TAG': 'td.t11.indenta',
             'PATH': '../../Opere/Dante/Traduzione/',
-            'OPEN_FILE_MODE': 'a',
+            'OPEN_FILE_MODE': 'w',
             'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
                                'XV', 'XVI', 'XVII',
                                'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI', 'XXVII', 'XXVIII',
@@ -129,7 +129,7 @@ class DanteSpider(scrapy.Spider):
             'NAME': 'ORIG_RIME',
             'TAG': 'td.t01.indenta',
             'PATH': '../../Opere/Dante/Originale/',
-            'OPEN_FILE_MODE': 'a',
+            'OPEN_FILE_MODE': 'w',
             'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
                                'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
                                'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII', 'XXXIV', 'XXXV', 'XXXVI',
@@ -147,7 +147,7 @@ class DanteSpider(scrapy.Spider):
             'NAME': 'TRAD_1_RIME',
             'TAG': 'td.tprosa',
             'PATH': '../../Opere/Dante/Traduzione/',
-            'OPEN_FILE_MODE': 'a',
+            'OPEN_FILE_MODE': 'w',
             'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
                                'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
                                'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII', 'XXXIV', 'XXXV', 'XXXVI',
@@ -179,7 +179,7 @@ class DanteSpider(scrapy.Spider):
             'TAG': 'td.wsite-multicol-col div.paragraph',
             'PATH': '../../Opere/Dante/Originale/',
             'RE-PATTERN': r'[0-9]',
-            'OPEN_FILE_MODE': 'a'
+            'OPEN_FILE_MODE': 'w'
         }
 
         self.TRAD_2_DIVINA_COMMEDIA_INFERNO = {
@@ -191,7 +191,7 @@ class DanteSpider(scrapy.Spider):
             'TAG': 'td.wsite-multicol-col div.paragraph em span',
             'PATH': '../../Opere/Dante/Traduzione/',
             'RE-PATTERN': r'[0-9]',
-            'OPEN_FILE_MODE': 'a'
+            'OPEN_FILE_MODE': 'w'
         }
 
         self.TRAD_3_DIVINA_COMMEDIA_INFERNO_EN = {
@@ -227,7 +227,7 @@ class DanteSpider(scrapy.Spider):
             'TAG': 'td.wsite-multicol-col div.paragraph',
             'PATH': '../../Opere/Dante/Originale/',
             'RE-PATTERN': r'[0-9]',
-            'OPEN_FILE_MODE': 'a'
+            'OPEN_FILE_MODE': 'w'
         }
 
         self.TRAD_2_DIVINA_COMMEDIA_PURGATORIO = {
@@ -239,7 +239,7 @@ class DanteSpider(scrapy.Spider):
             'TAG': 'td.wsite-multicol-col div.paragraph em span',
             'PATH': '../../Opere/Dante/Traduzione/',
             'RE-PATTERN': r'[0-9]',
-            'OPEN_FILE_MODE': 'a'
+            'OPEN_FILE_MODE': 'w'
         }
 
         self.ORIG_DIVINA_COMMEDIA_PARADISO = {
@@ -251,7 +251,7 @@ class DanteSpider(scrapy.Spider):
             'TAG': 'td.wsite-multicol-col div.paragraph',
             'PATH': '../../Opere/Dante/Originale/',
             'RE-PATTERN': r'[0-9]',
-            'OPEN_FILE_MODE': 'a'
+            'OPEN_FILE_MODE': 'w'
         }
 
         self.TRAD_2_DIVINA_COMMEDIA_PARADISO = {
@@ -263,7 +263,7 @@ class DanteSpider(scrapy.Spider):
             'TAG': 'td.wsite-multicol-col div.paragraph em span',
             'PATH': '../../Opere/Dante/Traduzione/',
             'RE-PATTERN': r'[0-9]',
-            'OPEN_FILE_MODE': 'a'
+            'OPEN_FILE_MODE': '3'
         }
 
     def start_requests(self):
