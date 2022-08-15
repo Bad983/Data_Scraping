@@ -206,18 +206,6 @@ class DanteSpider(scrapy.Spider):
             'OPEN_FILE_MODE': 'w'
         }
 
-        self.TRAD_4_DIVINA_COMMEDIA_INFERNO_DE = {
-            'URL': 'http://dantelab.dartmouth.edu/reader?reader%5Bcantica%5D=1&reader%5Bcanto%5D=numpages',
-            'NAME': 'TRAD_4_DIVINA_COMMEDIA_INFERNO_DE',
-            'MULTIPLE_PAGES': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',
-                               '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
-                               '31', '32', '33', '34'],
-            'TAG': 'div.well.tab-pane.active div.translation-section div.row-fluid div.canto div.canto_text.span9 p',
-            'PATH': '../../Opere/Dante/Traduzione/',
-            'RE-PATTERN': None,
-            'OPEN_FILE_MODE': 'w'
-        }
-
         self.ORIG_DIVINA_COMMEDIA_PURGATORIO = {
             'URL': 'https://divinacommedia.weebly.com/purgatorio-canto-numpages.html',
             'NAME': 'ORIG_DIVINA_COMMEDIA_PURGATORIO',
@@ -239,6 +227,18 @@ class DanteSpider(scrapy.Spider):
             'TAG': 'td.wsite-multicol-col div.paragraph em span',
             'PATH': '../../Opere/Dante/Traduzione/',
             'RE-PATTERN': r'[0-9]',
+            'OPEN_FILE_MODE': 'w'
+        }
+
+        self.TRAD_3_DIVINA_COMMEDIA_PURGATORIO_EN = {
+            'URL': 'http://dantelab.dartmouth.edu/reader?reader%5Bcantica%5D=2&reader%5Bcanto%5D=numpages',
+            'NAME': 'TRAD_3_DIVINA_COMMEDIA_PURGATORIO_EN',
+            'MULTIPLE_PAGES': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',
+                               '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
+                               '31', '32', '33'],
+            'TAG': 'div.well.tab-pane.active div.translation-section div.row-fluid div.canto div.canto_text.span9 p',
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'RE-PATTERN': None,
             'OPEN_FILE_MODE': 'w'
         }
 
@@ -266,6 +266,18 @@ class DanteSpider(scrapy.Spider):
             'OPEN_FILE_MODE': '3'
         }
 
+        self.TRAD_3_DIVINA_COMMEDIA_PARADISO_EN = {
+            'URL': 'http://dantelab.dartmouth.edu/reader?reader%5Bcantica%5D=3&reader%5Bcanto%5D=numpages',
+            'NAME': 'TRAD_3_DIVINA_COMMEDIA_PARADISO_EN',
+            'MULTIPLE_PAGES': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',
+                               '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
+                               '31', '32', '33'],
+            'TAG': 'div.well.tab-pane.active div.translation-section div.row-fluid div.canto div.canto_text.span9 p',
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'RE-PATTERN': None,
+            'OPEN_FILE_MODE': 'w'
+        }
+
     def start_requests(self):
         opere = [
             # self.ORIG_FIORE,
@@ -282,7 +294,8 @@ class DanteSpider(scrapy.Spider):
             # self.ORIG_DIVINA_COMMEDIA_PARADISO,
             # self.TRAD_2_DIVINA_COMMEDIA_PARADISO,
             # self.TRAD_3_DIVINA_COMMEDIA_INFERNO_EN,
-            self.TRAD_4_DIVINA_COMMEDIA_INFERNO_DE
+            # self.TRAD_3_DIVINA_COMMEDIA_PURGATORIO_EN,
+            self.TRAD_3_DIVINA_COMMEDIA_PARADISO_EN
         ]
         for opera in opere:
             print(opera['URL'])
@@ -293,8 +306,8 @@ class DanteSpider(scrapy.Spider):
                     url = opera['URL'].replace('numpages', pages)
                     # print(url)
                     yield scrapy.Request(url=url, callback=self.parse, cb_kwargs=dict(opera=opera, pages=pages))
-                    if pages == "1":
-                        break
+                    # if pages == "1":
+                    #     break
             else:
                 yield scrapy.Request(url=opera['URL'], callback=self.parse, cb_kwargs=dict(opera=opera))
 
