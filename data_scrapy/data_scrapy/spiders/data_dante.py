@@ -173,9 +173,10 @@ class DanteSpider(scrapy.Spider):
         self.ORIG_DIVINA_COMMEDIA_INFERNO = {
             'URL': 'https://divinacommedia.weebly.com/inferno-canto-numpages.html',
             'NAME': 'ORIG_DIVINA_COMMEDIA_INFERNO',
-            'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
-                               'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
-                               'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII', 'XXXIV'],
+            # 'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
+            #                    'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
+            #                   'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII', 'XXXIV'],
+            'MULTIPLE_PAGES': ['VI'],
             'TAG': 'td.wsite-multicol-col div.paragraph',
             'PATH': '../../Opere/Dante/Originale/',
             'RE-PATTERN': r'[0-9]',
@@ -278,6 +279,55 @@ class DanteSpider(scrapy.Spider):
             'OPEN_FILE_MODE': 'w'
         }
 
+        self.ORIG_DECAMERONE_PROEMIO = {
+            'URL': 'http://www.softwareparadiso.it/studio/letteratura/Decamerone/Decamerone-proemio.htm',
+            'NAME': 'ORIG_DECAMERONE_PROEMIO',
+            'MULTIPLE_PAGES': None,
+            'TAG': 'td.wsite-multicol-col div.paragraph',
+            'PATH': '../../Opere/Boccaccio/Originale/',
+            'RE-PATTERN': None,
+            'OPEN_FILE_MODE': 'w'
+        }
+
+        self.ORIG_DECAMERONE_NOVELLA = {
+            'URL': 'http://www.softwareparadiso.it/studio/letteratura/Decamerone/novellanumpages.htm',
+            'NAME': 'ORIG_DECAMERONE_NOVELLA',
+            'MULTIPLE_PAGES': ['01-00', '01-01', '01-02', '01-03', '01-04', '01-05',
+                               '01-06', '01-07', '01-08', '01-09', '01-10', '01-11',
+                               '02-00', '02-01', '02-02', '02-03', '02-04', '02-05',
+                               '02-06', '02-07', '02-08', '02-09', '02-10', '02-11',
+                               '03-00', '03-01', '03-02', '03-03', '03-04', '03-05',
+                               '03-06', '03-07', '03-08', '03-09', '03-10', '03-11',
+                               '04-00', '04-01', '04-02', '04-03', '04-04', '04-05',
+                               '04-06', '04-07', '04-08', '04-09', '04-10', '04-11',
+                               '05-00', '05-01', '05-02', '05-03', '05-04', '05-05',
+                               '05-06', '05-07', '05-08', '05-09', '05-10', '05-11',
+                               '06-00', '06-01', '06-02', '06-03', '06-04', '06-05',
+                               '06-06', '06-07', '06-08', '06-09', '06-10', '06-11',
+                               '07-00', '07-01', '07-02', '07-03', '07-04', '07-05',
+                               '07-06', '07-07', '07-08', '07-09', '07-10', '07-11',
+                               '08-00', '08-01', '08-02', '08-03', '08-04', '08-05',
+                               '08-06', '08-07', '08-08', '08-09', '08-10', '08-11',
+                               '09-00', '09-01', '09-02', '09-03', '09-04', '09-05',
+                               '09-06', '09-07', '09-08', '09-09', '09-10', '09-11',
+                               '10-00', '10-01', '10-02', '10-03', '10-04', '10-05',
+                               '10-06', '10-07', '10-08', '10-09', '10-10', '10-11'],
+            'TAG': 'td.wsite-multicol-col div.paragraph',
+            'PATH': '../../Opere/Boccaccio/Originale/',
+            'RE-PATTERN': None,
+            'OPEN_FILE_MODE': 'w'
+        }
+
+        self.ORIG_DECAMERONE_CONCLUSIONI = {
+            'URL': 'http://www.softwareparadiso.it/studio/letteratura/Decamerone/Decamerone-conclusioni.htm',
+            'NAME': 'ORIG_DECAMERONE_CONCLUSIONI',
+            'MULTIPLE_PAGES': None,
+            'TAG': 'td.TOP font.Century.Gothic font',
+            'PATH': '../../Opere/Boccaccio/Originale/',
+            'RE-PATTERN': None,
+            'OPEN_FILE_MODE': 'w'
+        }
+
     def start_requests(self):
         opere = [
             # self.ORIG_FIORE,
@@ -287,7 +337,7 @@ class DanteSpider(scrapy.Spider):
             # self.ORIG_RIME,
             # self.TRAD_1_RIME,
             # self.ORIG_CACCIA_DIANA,
-            # self.ORIG_DIVINA_COMMEDIA_INFERNO,
+            self.ORIG_DIVINA_COMMEDIA_INFERNO,
             # self.TRAD_2_DIVINA_COMMEDIA_INFERNO,
             # self.ORIG_DIVINA_COMMEDIA_PURGATORIO,
             # self.TRAD_2_DIVINA_COMMEDIA_PURGATORIO,
@@ -295,7 +345,8 @@ class DanteSpider(scrapy.Spider):
             # self.TRAD_2_DIVINA_COMMEDIA_PARADISO,
             # self.TRAD_3_DIVINA_COMMEDIA_INFERNO_EN,
             # self.TRAD_3_DIVINA_COMMEDIA_PURGATORIO_EN,
-            self.TRAD_3_DIVINA_COMMEDIA_PARADISO_EN
+            # self.TRAD_3_DIVINA_COMMEDIA_PARADISO_EN,
+            # self.ORIG_DECAMERONE_CONCLUSIONI
         ]
         for opera in opere:
             print(opera['URL'])
@@ -318,14 +369,14 @@ class DanteSpider(scrapy.Spider):
         pattern = opera['RE-PATTERN']
         open_file_mode = opera['OPEN_FILE_MODE']
         filename = path + f'{name}_{pages}.txt'
-        # print("******************************")
-        # print(response.url)
-        # print("******************************")
+        print("******************************")
+        print(response.url)
+        print("******************************")
 
         with open(filename, open_file_mode) as f:
 
             for resp in response.css(tag + "::text").getall():
-                # print(resp)
+                print(resp)
                 if pattern is not None:
                     resp = re.sub(pattern, '', resp)
 
