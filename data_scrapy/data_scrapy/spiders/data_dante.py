@@ -171,13 +171,12 @@ class DanteSpider(scrapy.Spider):
         }
 
         self.ORIG_DIVINA_COMMEDIA_INFERNO = {
-            'URL': 'https://divinacommedia.weebly.com/inferno-canto-numpages.html',
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Commedia%20-%20ed.%20Petrocchi&livello1=I&livello2=numpages',
             'NAME': 'ORIG_DIVINA_COMMEDIA_INFERNO',
-            # 'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
-            #                    'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
-            #                   'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII', 'XXXIV'],
-            'MULTIPLE_PAGES': ['VI'],
-            'TAG': 'td.wsite-multicol-col div.paragraph',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
+                               'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi',
+                               'xxvii', 'xxviii', 'xxix', 'xxx', 'xxxi', 'xxxii', 'xxxiii', 'xxxiv'],
+            'TAG': 'td.topera div.unopera td.indenta',
             'PATH': '../../Opere/Dante/Originale/',
             'RE-PATTERN': r'[0-9]',
             'OPEN_FILE_MODE': 'w'
@@ -373,7 +372,7 @@ class DanteSpider(scrapy.Spider):
         print(response.url)
         print("******************************")
 
-        with open(filename, open_file_mode) as f:
+        with open(filename, open_file_mode, encoding='utf-8') as f:
 
             for resp in response.css(tag + "::text").getall():
                 print(resp)
