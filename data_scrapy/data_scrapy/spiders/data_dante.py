@@ -336,15 +336,15 @@ class DanteSpider(scrapy.Spider):
             # self.ORIG_RIME,
             # self.TRAD_1_RIME,
             # self.ORIG_CACCIA_DIANA,
-            self.ORIG_DIVINA_COMMEDIA_INFERNO,
-            # self.TRAD_2_DIVINA_COMMEDIA_INFERNO,
+            # self.ORIG_DIVINA_COMMEDIA_INFERNO,
+            self.TRAD_2_DIVINA_COMMEDIA_INFERNO,
             # self.ORIG_DIVINA_COMMEDIA_PURGATORIO,
-            # self.TRAD_2_DIVINA_COMMEDIA_PURGATORIO,
+            self.TRAD_2_DIVINA_COMMEDIA_PURGATORIO,
             # self.ORIG_DIVINA_COMMEDIA_PARADISO,
-            # self.TRAD_2_DIVINA_COMMEDIA_PARADISO,
-            # self.TRAD_3_DIVINA_COMMEDIA_INFERNO_EN,
-            # self.TRAD_3_DIVINA_COMMEDIA_PURGATORIO_EN,
-            # self.TRAD_3_DIVINA_COMMEDIA_PARADISO_EN,
+            self.TRAD_2_DIVINA_COMMEDIA_PARADISO,
+            self.TRAD_3_DIVINA_COMMEDIA_INFERNO_EN,
+            self.TRAD_3_DIVINA_COMMEDIA_PURGATORIO_EN,
+            self.TRAD_3_DIVINA_COMMEDIA_PARADISO_EN,
             # self.ORIG_DECAMERONE_CONCLUSIONI
         ]
         for opera in opere:
