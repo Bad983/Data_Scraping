@@ -338,7 +338,7 @@ class DanteSpider(scrapy.Spider):
         }
 
         self.ORIG_CONVIVIO_TRATTATO_2 = {
-            'URL': 'https://www.danteonline.it/opere/index.php?opera=Convivio%20-%20ed.%20Brambilla%20Ageno&livello2=I&livello2=numpages',
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Convivio%20-%20ed.%20Brambilla%20Ageno&livello1=II&livello2=numpages',
             'NAME': 'ORIG_CONVIVIO_TRATTATO_2',
             'TAG': 'td.topera div.unopera td.tprosa',
             'PATH': '../../Opere/Dante/Originale/',
@@ -349,7 +349,7 @@ class DanteSpider(scrapy.Spider):
         }
 
         self.ORIG_CONVIVIO_TRATTATO_3 = {
-            'URL': 'https://www.danteonline.it/opere/index.php?opera=Convivio%20-%20ed.%20Brambilla%20Ageno&livello2=I&livello3=numpages',
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Convivio%20-%20ed.%20Brambilla%20Ageno&livello1=III&livello2=numpages',
             'NAME': 'ORIG_CONVIVIO_TRATTATO_3',
             'TAG': 'td.topera div.unopera td.tprosa',
             'PATH': '../../Opere/Dante/Originale/',
@@ -360,10 +360,54 @@ class DanteSpider(scrapy.Spider):
         }
 
         self.ORIG_CONVIVIO_TRATTATO_4 = {
-            'URL': 'https://www.danteonline.it/opere/index.php?opera=Convivio%20-%20ed.%20Brambilla%20Ageno&livello2=I&livello4=numpages',
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Convivio%20-%20ed.%20Brambilla%20Ageno&livello1=IV&livello2=numpages',
             'NAME': 'ORIG_CONVIVIO_TRATTATO_4',
             'TAG': 'td.topera div.unopera td.tprosa',
             'PATH': '../../Opere/Dante/Originale/',
+            'OPEN_FILE_MODE': 'w',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x',
+                               'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx',
+                               'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi', 'xvii', 'xxviii', 'xxix', 'xxx'],
+            'RE-PATTERN': None
+        }
+
+        self.TRAD_CONVIVIO_TRATTATO_1 = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=The%20Banquet%20-%20tr.%20Ryan&livello1=I&livello2=numpages',
+            'NAME': 'TRAD_CONVIVIO_TRATTATO_1',
+            'TAG': 'td.topera div.unopera td.tprosa',
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'OPEN_FILE_MODE': 'w',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii'],
+            'RE-PATTERN': None
+        }
+
+        self.TRAD_CONVIVIO_TRATTATO_2 = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=The%20Banquet%20-%20tr.%20Ryan&livello1=II&livello2=numpages',
+            'NAME': 'TRAD_CONVIVIO_TRATTATO_2',
+            'TAG': 'td.topera div.unopera td.tprosa',
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'OPEN_FILE_MODE': 'w',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix',
+                               'x', 'xi', 'xii', 'xiii', 'xiv', 'xv'],
+            'RE-PATTERN': None
+        }
+
+        self.TRAD_CONVIVIO_TRATTATO_3 = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=The%20Banquet%20-%20tr.%20Ryan&livello1=III&livello2=numpages',
+            'NAME': 'TRAD_CONVIVIO_TRATTATO_3',
+            'TAG': 'td.topera div.unopera td.tprosa',
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'OPEN_FILE_MODE': 'w',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix',
+                               'x', 'xi', 'xii', 'xiii', 'xiv', 'xv'],
+            'RE-PATTERN': None
+        }
+
+        self.TRAD_CONVIVIO_TRATTATO_4 = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=The%20Banquet%20-%20tr.%20Ryan&livello1=IV&livello2=numpages',
+            'NAME': 'TRAD_CONVIVIO_TRATTATO_4',
+            'TAG': 'td.topera div.unopera td.tprosa',
+            'PATH': '../../Opere/Dante/Traduzione/',
             'OPEN_FILE_MODE': 'w',
             'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x',
                                'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx',
@@ -390,10 +434,14 @@ class DanteSpider(scrapy.Spider):
             # self.TRAD_3_DIVINA_COMMEDIA_PURGATORIO_EN,
             # self.TRAD_3_DIVINA_COMMEDIA_PARADISO_EN,
             # self.ORIG_DECAMERONE_CONCLUSIONI
-            self.ORIG_CONVIVIO_TRATTATO_1,
-            self.ORIG_CONVIVIO_TRATTATO_2,
-            self.ORIG_CONVIVIO_TRATTATO_3,
-            self.ORIG_CONVIVIO_TRATTATO_4
+            # self.ORIG_CONVIVIO_TRATTATO_1,
+            # self.ORIG_CONVIVIO_TRATTATO_2,
+            # self.ORIG_CONVIVIO_TRATTATO_3,
+            # self.ORIG_CONVIVIO_TRATTATO_4,
+            self.TRAD_CONVIVIO_TRATTATO_1,
+            self.TRAD_CONVIVIO_TRATTATO_2,
+            self.TRAD_CONVIVIO_TRATTATO_3,
+            self.TRAD_CONVIVIO_TRATTATO_4
         ]
         for opera in opere:
             print(opera['URL'])
