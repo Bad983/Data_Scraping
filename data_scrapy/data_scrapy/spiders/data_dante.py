@@ -327,6 +327,50 @@ class DanteSpider(scrapy.Spider):
             'OPEN_FILE_MODE': 'w'
         }
 
+        self.ORIG_CONVIVIO_TRATTATO_1 = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Convivio%20-%20ed.%20Brambilla%20Ageno&livello1=I&livello2=numpages',
+            'NAME': 'ORIG_CONVIVIO_TRATTATO_1',
+            'TAG': 'td.topera div.unopera td.tprosa',
+            'PATH': '../../Opere/Dante/Originale/',
+            'OPEN_FILE_MODE': 'w',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii'],
+            'RE-PATTERN': None
+        }
+
+        self.ORIG_CONVIVIO_TRATTATO_2 = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Convivio%20-%20ed.%20Brambilla%20Ageno&livello2=I&livello2=numpages',
+            'NAME': 'ORIG_CONVIVIO_TRATTATO_2',
+            'TAG': 'td.topera div.unopera td.tprosa',
+            'PATH': '../../Opere/Dante/Originale/',
+            'OPEN_FILE_MODE': 'w',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix',
+                               'x', 'xi', 'xii', 'xiii', 'xiv', 'xv'],
+            'RE-PATTERN': None
+        }
+
+        self.ORIG_CONVIVIO_TRATTATO_3 = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Convivio%20-%20ed.%20Brambilla%20Ageno&livello2=I&livello3=numpages',
+            'NAME': 'ORIG_CONVIVIO_TRATTATO_3',
+            'TAG': 'td.topera div.unopera td.tprosa',
+            'PATH': '../../Opere/Dante/Originale/',
+            'OPEN_FILE_MODE': 'w',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix',
+                               'x', 'xi', 'xii', 'xiii', 'xiv', 'xv'],
+            'RE-PATTERN': None
+        }
+
+        self.ORIG_CONVIVIO_TRATTATO_4 = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Convivio%20-%20ed.%20Brambilla%20Ageno&livello2=I&livello4=numpages',
+            'NAME': 'ORIG_CONVIVIO_TRATTATO_4',
+            'TAG': 'td.topera div.unopera td.tprosa',
+            'PATH': '../../Opere/Dante/Originale/',
+            'OPEN_FILE_MODE': 'w',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x',
+                               'xi', 'xii', 'xiii', 'xiv', 'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx',
+                               'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi', 'xvii', 'xxviii', 'xxix', 'xxx'],
+            'RE-PATTERN': None
+        }
+
     def start_requests(self):
         opere = [
             # self.ORIG_FIORE,
@@ -337,15 +381,19 @@ class DanteSpider(scrapy.Spider):
             # self.TRAD_1_RIME,
             # self.ORIG_CACCIA_DIANA,
             # self.ORIG_DIVINA_COMMEDIA_INFERNO,
-            self.TRAD_2_DIVINA_COMMEDIA_INFERNO,
+            # self.TRAD_2_DIVINA_COMMEDIA_INFERNO,
             # self.ORIG_DIVINA_COMMEDIA_PURGATORIO,
-            self.TRAD_2_DIVINA_COMMEDIA_PURGATORIO,
+            # self.TRAD_2_DIVINA_COMMEDIA_PURGATORIO,
             # self.ORIG_DIVINA_COMMEDIA_PARADISO,
-            self.TRAD_2_DIVINA_COMMEDIA_PARADISO,
-            self.TRAD_3_DIVINA_COMMEDIA_INFERNO_EN,
-            self.TRAD_3_DIVINA_COMMEDIA_PURGATORIO_EN,
-            self.TRAD_3_DIVINA_COMMEDIA_PARADISO_EN,
+            # self.TRAD_2_DIVINA_COMMEDIA_PARADISO,
+            # self.TRAD_3_DIVINA_COMMEDIA_INFERNO_EN,
+            # self.TRAD_3_DIVINA_COMMEDIA_PURGATORIO_EN,
+            # self.TRAD_3_DIVINA_COMMEDIA_PARADISO_EN,
             # self.ORIG_DECAMERONE_CONCLUSIONI
+            self.ORIG_CONVIVIO_TRATTATO_1,
+            self.ORIG_CONVIVIO_TRATTATO_2,
+            self.ORIG_CONVIVIO_TRATTATO_3,
+            self.ORIG_CONVIVIO_TRATTATO_4
         ]
         for opera in opere:
             print(opera['URL'])
@@ -361,13 +409,23 @@ class DanteSpider(scrapy.Spider):
             else:
                 yield scrapy.Request(url=opera['URL'], callback=self.parse, cb_kwargs=dict(opera=opera))
 
+    def transform_roman_numeral_to_number(self, roman_numeral):
+        roman_char_dict = {'i': 1, 'v': 5, 'x': 10, 'l': 50, 'c': 100, 'd': 500, 'm': 1000}
+        res = 0
+        for i in range(0, len(roman_numeral)):
+            if i == 0 or roman_char_dict[roman_numeral[i]] <= roman_char_dict[roman_numeral[i - 1]]:
+                res += roman_char_dict[roman_numeral[i]]
+            else:
+                res += roman_char_dict[roman_numeral[i]] - 2 * roman_char_dict[roman_numeral[i - 1]]
+        return res
+
     def parse(self, response, opera, pages='1', **kwargs):
         name = opera['NAME']
         path = opera['PATH']
         tag = opera['TAG']
         pattern = opera['RE-PATTERN']
         open_file_mode = opera['OPEN_FILE_MODE']
-        filename = path + f'{name}_{pages}.txt'
+        filename = path + f'{name}_{self.transform_roman_numeral_to_number(pages)}.txt'
         print("******************************")
         print(response.url)
         print("******************************")
