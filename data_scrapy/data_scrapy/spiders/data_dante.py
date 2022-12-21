@@ -173,12 +173,12 @@ class DanteSpider(scrapy.Spider):
         self.ORIG_DIVINA_COMMEDIA_INFERNO = {
             'URL': 'https://www.danteonline.it/opere/index.php?opera=Commedia%20-%20ed.%20Petrocchi&livello1=I&livello2=numpages',
             'NAME': 'ORIG_DIVINA_COMMEDIA_INFERNO',
-            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viiv', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
                                'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi',
                                'xxvii', 'xxviii', 'xxix', 'xxx', 'xxxi', 'xxxii', 'xxxiii', 'xxxiv'],
-            'TAG': 'td.topera div.unopera td.indenta',
+            'TAG': 'div.unopera td.t07',
             'PATH': '../../Opere/Dante/Originale/',
-            'RE-PATTERN': r'[0-9]',
+            'RE-PATTERN': None,
             'OPEN_FILE_MODE': 'w'
         }
 
@@ -207,14 +207,14 @@ class DanteSpider(scrapy.Spider):
         }
 
         self.ORIG_DIVINA_COMMEDIA_PURGATORIO = {
-            'URL': 'https://divinacommedia.weebly.com/purgatorio-canto-numpages.html',
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Commedia%20-%20ed.%20Petrocchi&livello1=II&livello2=numpages',
             'NAME': 'ORIG_DIVINA_COMMEDIA_PURGATORIO',
-            'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
-                               'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
-                               'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII'],
-            'TAG': 'td.wsite-multicol-col div.paragraph',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viiv', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
+                               'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi',
+                               'xxvii', 'xxviii', 'xxix', 'xxx', 'xxxi', 'xxxii', 'xxxiii'],
+            'TAG': 'div.unopera td.t07',
             'PATH': '../../Opere/Dante/Originale/',
-            'RE-PATTERN': r'[0-9]',
+            'RE-PATTERN': None,
             'OPEN_FILE_MODE': 'w'
         }
 
@@ -243,14 +243,14 @@ class DanteSpider(scrapy.Spider):
         }
 
         self.ORIG_DIVINA_COMMEDIA_PARADISO = {
-            'URL': 'https://divinacommedia.weebly.com/paradiso-canto-numpages.html',
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Commedia%20-%20ed.%20Petrocchi&livello1=III&livello2=numpages',
             'NAME': 'ORIG_DIVINA_COMMEDIA_PARADISO',
-            'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
-                               'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
-                               'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII'],
-            'TAG': 'td.wsite-multicol-col div.paragraph',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viiv', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
+                               'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi',
+                               'xxvii', 'xxviii', 'xxix', 'xxx', 'xxxi', 'xxxii', 'xxxiii'],
+            'TAG': 'div.unopera td.t07',
             'PATH': '../../Opere/Dante/Originale/',
-            'RE-PATTERN': r'[0-9]',
+            'RE-PATTERN': None,
             'OPEN_FILE_MODE': 'w'
         }
 
@@ -424,11 +424,11 @@ class DanteSpider(scrapy.Spider):
             # self.ORIG_RIME,
             # self.TRAD_1_RIME,
             # self.ORIG_CACCIA_DIANA,
-            # self.ORIG_DIVINA_COMMEDIA_INFERNO,
+            self.ORIG_DIVINA_COMMEDIA_INFERNO,
             # self.TRAD_2_DIVINA_COMMEDIA_INFERNO,
-            # self.ORIG_DIVINA_COMMEDIA_PURGATORIO,
+            self.ORIG_DIVINA_COMMEDIA_PURGATORIO,
             # self.TRAD_2_DIVINA_COMMEDIA_PURGATORIO,
-            # self.ORIG_DIVINA_COMMEDIA_PARADISO,
+            self.ORIG_DIVINA_COMMEDIA_PARADISO,
             # self.TRAD_2_DIVINA_COMMEDIA_PARADISO,
             # self.TRAD_3_DIVINA_COMMEDIA_INFERNO_EN,
             # self.TRAD_3_DIVINA_COMMEDIA_PURGATORIO_EN,
@@ -438,10 +438,10 @@ class DanteSpider(scrapy.Spider):
             # self.ORIG_CONVIVIO_TRATTATO_2,
             # self.ORIG_CONVIVIO_TRATTATO_3,
             # self.ORIG_CONVIVIO_TRATTATO_4,
-            self.TRAD_CONVIVIO_TRATTATO_1,
-            self.TRAD_CONVIVIO_TRATTATO_2,
-            self.TRAD_CONVIVIO_TRATTATO_3,
-            self.TRAD_CONVIVIO_TRATTATO_4
+            # self.TRAD_CONVIVIO_TRATTATO_1,
+            # self.TRAD_CONVIVIO_TRATTATO_2,
+            # self.TRAD_CONVIVIO_TRATTATO_3,
+            # self.TRAD_CONVIVIO_TRATTATO_4
         ]
         for opera in opere:
             print(opera['URL'])
