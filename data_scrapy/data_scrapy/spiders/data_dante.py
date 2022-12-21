@@ -245,7 +245,7 @@ class DanteSpider(scrapy.Spider):
         self.ORIG_DIVINA_COMMEDIA_PARADISO = {
             'URL': 'https://www.danteonline.it/opere/index.php?opera=Commedia%20-%20ed.%20Petrocchi&livello1=III&livello2=numpages',
             'NAME': 'ORIG_DIVINA_COMMEDIA_PARADISO',
-            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viiv', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
                                'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi',
                                'xxvii', 'xxviii', 'xxix', 'xxx', 'xxxi', 'xxxii', 'xxxiii'],
             'TAG': 'div.unopera td.t07',
