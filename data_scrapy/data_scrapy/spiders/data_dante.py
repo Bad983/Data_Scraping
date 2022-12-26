@@ -9,50 +9,29 @@ class DanteSpider(scrapy.Spider):
         super().__init__(**kwargs)
 
         self.ORIG_FIORE = {
-            'URL': 'https://www.danteonline.it/opere/index.php?opera=Fiore%20-%20ed.%20Contini&livello1=numpages',
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=Fiore%20-%20ed.%20Allegretti&livello1=numpages',
             'NAME': 'ORIG_FIORE',
-            'TAG': 'td.t01.indenta',
+            'TAG': 'div.unopera td.t01',
             'PATH': '../../Opere/Dante/Originale/',
             'OPEN_FILE_MODE': 'w',
-            'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
-                               'XV', 'XVI', 'XVII',
-                               'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI', 'XXVII', 'XXVIII',
-                               'XXIX', 'XXX',
-                               'XXXI', 'XXXII', 'XXXIII', 'XXXIV', 'XXXV', 'XXXVI', 'XXXVII', 'XXXVIII', 'XXXIX', 'XL',
-                               'XLI', 'XLII',
-                               'XLIII', 'XLIV', 'XLV', 'XLVI', 'XLVII', 'XLVIII', 'XLIX', 'L', 'LI', 'LII', 'LIII',
-                               'LIV', 'LV', 'LVI',
-                               'LVII', 'LVIII', 'LIX', 'LX', 'LXI', 'LXII', 'LXIII', 'LXIV', 'LXV', 'LXVI', 'LXVII',
-                               'LXVIII', 'LXIX',
-                               'LXX', 'LXXI', 'LXXII', 'LXXIII', 'LXXIV', 'LXXV', 'LXXVI', 'LXXVII', 'LXXVIII', 'LXXIX',
-                               'LXXX',
-                               'LXXXI', 'LXXXII', 'LXXXIII', 'LXXXIV', 'LXXXV', 'LXXXVI', 'LXXXVII', 'LXXXVIII',
-                               'LXXXIX', 'XC',
-                               'XCI', 'XCII', 'XCIII', 'XCIV', 'XCV', 'XCVI', 'XCVII', 'XCVIII', 'XCIX', 'C', 'CI',
-                               'CII', 'CIII', 'CIV',
-                               'CV', 'CVI', 'CVII', 'CVIII', 'CIX', 'CX', 'CXI', 'CXII', 'CXIII', 'CXIV', 'CXV', 'CXVI',
-                               'CXVII',
-                               'CXVIII', 'CXIX', 'CXX', 'CXXI', 'CXXII', 'CXXIII', 'CXXIV', 'CXXV', 'CXXVI', 'CXXVII',
-                               'CXXVIII',
-                               'CXXIX', 'CXXX', 'CXXXI', 'CXXXII', 'CXXXIII', 'CXXXIV', 'CXXXV', 'CXXXVI', 'CXXXVII',
-                               'CXXXVIII',
-                               'CXXXIX', 'CXL', 'CXLI', 'CXLII', 'CXLIII', 'CXLIV', 'CXLV', 'CXLVI', 'CXLVII',
-                               'CXLVIII', 'CXLIX',
-                               'CL', 'CLI', 'CLII', 'CLIII', 'CLIV', 'CLV', 'CLVI', 'CLVII', 'CLVIII', 'CLIX', 'CLX',
-                               'CLXI', 'CLXII',
-                               'CLXIII', 'CLXIV', 'CLXV', 'CLXVI', 'CLXVII', 'CLXVIII', 'CLXIX', 'CLXX', 'CLXXI',
-                               'CLXXII', 'CLXXIII',
-                               'CLXXIV', 'CLXXV', 'CLXXVI', 'CLXXVII', 'CLXXVIII', 'CLXXIX', 'CLXXX', 'CLXXXI',
-                               'CLXXXII',
-                               'CLXXXIII', 'CLXXXIV', 'CLXXXV', 'CLXXXVI', 'CLXXXVII', 'CLXXXVIII', 'CLXXXIX', 'CXC',
-                               'CXCI',
-                               'CXCII', 'CXCIII', 'CXCIV', 'CXCV', 'CXCVI', 'CXCVII', 'CXCVIII', 'CXCIX', 'CC', 'CCI',
-                               'CCII',
-                               'CCIII', 'CCIV', 'CCV', 'CCVI', 'CCVII', 'CCVIII', 'CCIX', 'CCX', 'CCXI', 'CCXII',
-                               'CCXIII', 'CCXIV',
-                               'CCXV', 'CCXVI', 'CCXVII', 'CCXVIII', 'CCXIX', 'CCXX', 'CCXXI', 'CCXXII', 'CCXXIII',
-                               'CCXXIV',
-                               'CCXXV', 'CCXXVI', 'CCXXVII', 'CCXXVIII', 'CCXXIX', 'CCXXX', 'CCXXXI', 'CCXXXII'],
+            'MULTIPLE_PAGES': ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16',
+                               '17', '18', '19', '20', '21', '22', '23', '24', '25', '26', '27', '28', '29', '30',
+                               '31', '32', '33', '34', '35', '36', '37', '38', '39', '40', '41', '42', '43', '44', '45',
+                               '46', '47', '48', '49', '50', '51', '52', '53', '54', '55', '56', '57', '58', '59', '60',
+                               '61', '62', '63', '64', '65', '66', '67', '68', '69', '70', '71', '72', '73', '74', '75',
+                               '76', '77', '78', '79', '80', '81', '82', '83', '84', '85', '86', '87', '88', '89', '90',
+                               '91', '92', '93', '94', '95', '96', '97', '98', '99', '100',
+                               '101', '102', '103', '104', '105', '106', '107', '108', '109', '110', '111', '112',
+                               '113', '114', '115', '116', '117', '118', '119', '120', '121', '122', '123', '124',
+                               '125', '126', '127', '128', '129', '130', '131', '132', '133', '134', '135', '136',
+                               '137', '138', '139', '140', '141', '142', '143', '144', '145', '146', '147', '148',
+                               '149', '150', '151', '152', '153', '154', '155', '156', '157', '158', '159', '160',
+                               '161', '162', '163', '164', '165', '166', '167', '168', '169', '170', '171', '172',
+                               '173', '174', '175', '176', '177', '178', '179', '180', '181', '182', '183', '184',
+                               '185', '186', '187', '188', '189', '190', '191', '192', '193', '194', '195', '196',
+                               '197', '198', '199', '200', '201', '202', '203', '204', '205', '206', '207', '208',
+                               '209', '210', '211', '212', '213', '214', '215', '216', '217', '218', '219', '220',
+                               '221', '222', '223', '224', '225', '226', '227', '228', '229', '230', '231', '232'],
             'RE-PATTERN': None
         }
 
@@ -333,8 +312,9 @@ class DanteSpider(scrapy.Spider):
             'TAG': 'td.topera div.unopera td.tprosa',
             'PATH': '../../Opere/Dante/Originale/',
             'OPEN_FILE_MODE': 'w',
-            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii'],
-            'RE-PATTERN': None
+            # 'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii'],
+            'MULTIPLE_PAGES': ['ii'],
+            'RE-PATTERN': '\r\n'
         }
 
         self.ORIG_CONVIVIO_TRATTATO_2 = {
@@ -415,6 +395,78 @@ class DanteSpider(scrapy.Spider):
             'RE-PATTERN': None
         }
 
+        self.TRAD_5_DIVINA_COMMEDIA_INFERNO = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=The%20Divine%20Comedy%20-%20tr.%20Mandelbaum&livello1=I&livello2=numpages',
+            'NAME': 'TRAD_5_DIVINA_COMMEDIA_INFERNO',
+            'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
+                               'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
+                               'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII', 'XXXIV'],
+            'TAG': 'div.unopera td.t07',
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'RE-PATTERN': None,
+            'OPEN_FILE_MODE': 'w'
+        }
+
+        self.TRAD_5_DIVINA_COMMEDIA_PURGATORIO = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=The%20Divine%20Comedy%20-%20tr.%20Mandelbaum&livello1=II&livello2=numpages',
+            'NAME': 'TRAD_5_DIVINA_COMMEDIA_PURGATORIO',
+            'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
+                               'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
+                               'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII'],
+            'TAG': 'div.unopera td.t07',
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'RE-PATTERN': None,
+            'OPEN_FILE_MODE': 'w'
+        }
+
+        self.TRAD_5_DIVINA_COMMEDIA_PARADISO = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=The%20Divine%20Comedy%20-%20tr.%20Mandelbaum&livello1=III&livello2=numpages',
+            'NAME': 'TRAD_5_DIVINA_COMMEDIA_PARADISO',
+            'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
+                               'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
+                               'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII'],
+            'TAG': 'div.unopera td.t07',
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'RE-PATTERN': None,
+            'OPEN_FILE_MODE': 'w'
+        }
+
+        self.TRAD_6_DIVINA_COMMEDIA_INFERNO = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=The%20Divine%20Commedy%20-%20tr.%20Hollander&livello1=I&livello2=numpages',
+            'NAME': 'TRAD_6_DIVINA_COMMEDIA_INFERNO',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viiv', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
+                               'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi',
+                               'xxvii', 'xxviii', 'xxix', 'xxx', 'xxxi', 'xxxii', 'xxxiii', 'xxxiv'],
+            'TAG': 'div.unopera td.t07',
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'RE-PATTERN': None,
+            'OPEN_FILE_MODE': 'w'
+        }
+
+        self.TRAD_6_DIVINA_COMMEDIA_PURGATORIO = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=The%20Divine%20Commedy%20-%20tr.%20Hollander&livello1=II&livello2=numpages',
+            'NAME': 'TRAD_6_DIVINA_COMMEDIA_PURGATORIO',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viiv', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
+                               'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi',
+                               'xxvii', 'xxviii', 'xxix', 'xxx', 'xxxi', 'xxxii', 'xxxiii'],
+            'TAG': 'div.unopera td.t07',
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'RE-PATTERN': None,
+            'OPEN_FILE_MODE': 'w'
+        }
+
+        self.TRAD_6_DIVINA_COMMEDIA_PARADISO = {
+            'URL': 'https://www.danteonline.it/opere/index.php?opera=The%20Divine%20Commedy%20-%20tr.%20Hollander&livello1=III&livello2=numpages',
+            'NAME': 'TRAD_6_DIVINA_COMMEDIA_PARADISO',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viiv', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
+                               'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi',
+                               'xxvii', 'xxviii', 'xxix', 'xxx', 'xxxi', 'xxxii', 'xxxiii'],
+            'TAG': 'div.unopera td.t07',
+            'PATH': '../../Opere/Dante/Traduzione/',
+            'RE-PATTERN': None,
+            'OPEN_FILE_MODE': 'w'
+        }
+
     def start_requests(self):
         opere = [
             # self.ORIG_FIORE,
@@ -424,11 +476,11 @@ class DanteSpider(scrapy.Spider):
             # self.ORIG_RIME,
             # self.TRAD_1_RIME,
             # self.ORIG_CACCIA_DIANA,
-            self.ORIG_DIVINA_COMMEDIA_INFERNO,
+            # self.ORIG_DIVINA_COMMEDIA_INFERNO,
             # self.TRAD_2_DIVINA_COMMEDIA_INFERNO,
-            self.ORIG_DIVINA_COMMEDIA_PURGATORIO,
+            # self.ORIG_DIVINA_COMMEDIA_PURGATORIO,
             # self.TRAD_2_DIVINA_COMMEDIA_PURGATORIO,
-            self.ORIG_DIVINA_COMMEDIA_PARADISO,
+            # self.ORIG_DIVINA_COMMEDIA_PARADISO,
             # self.TRAD_2_DIVINA_COMMEDIA_PARADISO,
             # self.TRAD_3_DIVINA_COMMEDIA_INFERNO_EN,
             # self.TRAD_3_DIVINA_COMMEDIA_PURGATORIO_EN,
@@ -441,7 +493,13 @@ class DanteSpider(scrapy.Spider):
             # self.TRAD_CONVIVIO_TRATTATO_1,
             # self.TRAD_CONVIVIO_TRATTATO_2,
             # self.TRAD_CONVIVIO_TRATTATO_3,
-            # self.TRAD_CONVIVIO_TRATTATO_4
+            # self.TRAD_CONVIVIO_TRATTATO_4,
+            # self.TRAD_5_DIVINA_COMMEDIA_INFERNO,
+            # self.TRAD_5_DIVINA_COMMEDIA_PURGATORIO,
+            # self.TRAD_5_DIVINA_COMMEDIA_PARADISO,
+            self.TRAD_6_DIVINA_COMMEDIA_INFERNO,
+            self.TRAD_6_DIVINA_COMMEDIA_PURGATORIO,
+            self.TRAD_6_DIVINA_COMMEDIA_PARADISO
         ]
         for opera in opere:
             print(opera['URL'])
@@ -458,7 +516,8 @@ class DanteSpider(scrapy.Spider):
                 yield scrapy.Request(url=opera['URL'], callback=self.parse, cb_kwargs=dict(opera=opera))
 
     def transform_roman_numeral_to_number(self, roman_numeral):
-        roman_char_dict = {'i': 1, 'v': 5, 'x': 10, 'l': 50, 'c': 100, 'd': 500, 'm': 1000}
+        roman_char_dict = {'i': 1, 'v': 5, 'x': 10, 'l': 50, 'c': 100, 'd': 500, 'm': 1000,
+                           'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
         res = 0
         for i in range(0, len(roman_numeral)):
             if i == 0 or roman_char_dict[roman_numeral[i]] <= roman_char_dict[roman_numeral[i - 1]]:
@@ -474,6 +533,7 @@ class DanteSpider(scrapy.Spider):
         pattern = opera['RE-PATTERN']
         open_file_mode = opera['OPEN_FILE_MODE']
         filename = path + f'{name}_{self.transform_roman_numeral_to_number(pages)}.txt'
+        # filename = path + f'{name}_{pages}.txt'
         print("******************************")
         print(response.url)
         print("******************************")
@@ -482,6 +542,7 @@ class DanteSpider(scrapy.Spider):
 
             for resp in response.css(tag + "::text").getall():
                 print(resp)
+
                 if pattern is not None:
                     resp = re.sub(pattern, '', resp)
 
