@@ -434,7 +434,7 @@ class DanteSpider(scrapy.Spider):
         self.TRAD_6_DIVINA_COMMEDIA_INFERNO = {
             'URL': 'https://www.danteonline.it/opere/index.php?opera=The%20Divine%20Commedy%20-%20tr.%20Hollander&livello1=I&livello2=numpages',
             'NAME': 'TRAD_6_DIVINA_COMMEDIA_INFERNO',
-            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viiv', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
+            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viii', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
                                'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi',
                                'xxvii', 'xxviii', 'xxix', 'xxx', 'xxxi', 'xxxii', 'xxxiii', 'xxxiv'],
             'TAG': 'div.unopera td.t07',
