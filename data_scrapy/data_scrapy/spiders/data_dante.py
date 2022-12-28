@@ -458,9 +458,9 @@ class DanteSpider(scrapy.Spider):
         self.TRAD_6_DIVINA_COMMEDIA_PARADISO = {
             'URL': 'https://www.danteonline.it/opere/index.php?opera=The%20Divine%20Commedy%20-%20tr.%20Hollander&livello1=III&livello2=numpages',
             'NAME': 'TRAD_6_DIVINA_COMMEDIA_PARADISO',
-            'MULTIPLE_PAGES': ['i', 'ii', 'iii', 'iv', 'v', 'vi', 'vii', 'viiv', 'ix', 'x', 'xi', 'xii', 'xiii', 'xiv',
-                               'xv', 'xvi', 'xvii', 'xviii', 'xix', 'xx', 'xxi', 'xxii', 'xxiii', 'xxiv', 'xxv', 'xxvi',
-                               'xxvii', 'xxviii', 'xxix', 'xxx', 'xxxi', 'xxxii', 'xxxiii'],
+            'MULTIPLE_PAGES': ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII', 'XIII', 'XIV',
+                               'XV', 'XVI', 'XVII', 'XVIII', 'XIX', 'XX', 'XXI', 'XXII', 'XXIII', 'XXIV', 'XXV', 'XXVI',
+                               'XXVII', 'XXVIII', 'XXIX', 'XXX', 'XXXI', 'XXXII', 'XXXIII'],
             'TAG': 'div.unopera td.t07',
             'PATH': '../../Opere/Dante/Traduzione/',
             'RE-PATTERN': None,
@@ -497,8 +497,8 @@ class DanteSpider(scrapy.Spider):
             # self.TRAD_5_DIVINA_COMMEDIA_INFERNO,
             # self.TRAD_5_DIVINA_COMMEDIA_PURGATORIO,
             # self.TRAD_5_DIVINA_COMMEDIA_PARADISO,
-            self.TRAD_6_DIVINA_COMMEDIA_INFERNO,
-            self.TRAD_6_DIVINA_COMMEDIA_PURGATORIO,
+            # self.TRAD_6_DIVINA_COMMEDIA_INFERNO,
+            # self.TRAD_6_DIVINA_COMMEDIA_PURGATORIO,
             self.TRAD_6_DIVINA_COMMEDIA_PARADISO
         ]
         for opera in opere:
